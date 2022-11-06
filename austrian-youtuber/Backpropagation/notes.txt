@@ -1,0 +1,28 @@
+Back prop
+
+--x--> ( a(x) ) --y--> ( b(y) ) --z-->
+
+We want: dz/dx. 
+Chain rule: dz/dx = dz/dy . dy/dx
+
+
+Computationnal graph:
+    Each operation we do with our tensors, pytorch will create a graph. At each node we apply one function
+    with input and get an output. 
+
+    At these nodes we can calculate LOCAL GRADIENTS, and then using these we can get the final gradient. 
+
+
+1. Forward Pass: Compute Loss
+2. Compute local gradients
+3. Backward pass: Compute dLoss / dWeights using the Chain Rule. 
+
+
+Training pipeline:
+1. Design moedl (input, output size, forward pass)
+2. Construct loss and optimizer
+3. Training loop
+    - forward pass: compute prediction
+    - backward pass: gradients
+    - update weights
+
